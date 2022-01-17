@@ -3,7 +3,7 @@ services:
   - mysql
   - php:
       version: 7.3
-  - composer
+  - composer:
       version: 2
 
 variables:

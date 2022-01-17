@@ -1,10 +1,8 @@
-version: 1.3.0
+version: 1.2.0
 services:
   - mysql
   - php:
-      version: 7.4
-  - composer:
-      version: 2
+      version: 7.3
 
 variables:
   global:
@@ -45,21 +43,21 @@ events:
             type: script
             script:
               - source ${BLT_DIR}/scripts/pipelines/build_artifact
-  # post-deploy:
-  #   steps:
-  #     - deploy:
-  #         script:
-  #           - pipelines-deploy
-  #           # Uncomment this line and replace DB_NAME to sync a db on deploys.
-  #           # @see https://docs.acquia.com/acquia-cloud/develop/pipelines/databases/
-  #           # - pipelines-sync-dbs DB_NAME
-  # pr-merged:
-  #   steps:
-  #     - deploy:
-  #         script:
-  #           - pipelines-deploy
-  # pr-closed:
-  #   steps:
-  #     - deploy:
-  #         script:
-  #           - pipelines-deploy
+  post-deploy:
+    steps:
+      - deploy:
+          script:
+            - pipelines-deploy
+            # Uncomment this line and replace DB_NAME to sync a db on deploys.
+            # @see https://docs.acquia.com/acquia-cloud/develop/pipelines/databases/
+            # - pipelines-sync-dbs DB_NAME
+  pr-merged:
+    steps:
+      - deploy:
+          script:
+            - pipelines-deploy
+  pr-closed:
+    steps:
+      - deploy:
+          script:
+            - pipelines-deploy

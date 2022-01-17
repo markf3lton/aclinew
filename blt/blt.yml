@@ -1,11 +1,12 @@
 project:
-  human_name: My Drupal 9 Site
-  machine_name: drupal9demo
+  human_name: drupal9
+  machine_name: drupal9
   local:
-    hostname: local.${project.machine_name}.com
+    hostname: local.drupal9.com
     protocol: http
-    uri: ${project.local.protocol}://${project.local.hostname}
-  # Used for enforcing correct git commit msg syntax.
+    uri: '${project.local.protocol}://${project.local.hostname}'
   prefix: BLT
   profile:
     name: standard
+cm:
+  strategy: config-split

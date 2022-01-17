@@ -1,2 +1,11 @@
 project:
-  machine_name: project
+  human_name: My Drupal 9 Site
+  machine_name: drupal9demo
+  local:
+    hostname: local.${project.machine_name}.com
+    protocol: http
+    uri: ${project.local.protocol}://${project.local.hostname}
+  # Used for enforcing correct git commit msg syntax.
+  prefix: BLT
+  profile:
+    name: standard

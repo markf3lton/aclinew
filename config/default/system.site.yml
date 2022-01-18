@@ -4,7 +4,7 @@ langcode: en
 uuid: 70d20a82-ec2a-4f47-b29b-91db62ffcab6
 name: 'Drupal 9'
 mail: admin@example.com
-slogan: 'A slogan goes here'
+slogan: 'A different slogan'
 page:
   403: ''
   404: ''

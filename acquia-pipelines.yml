@@ -1,0 +1,21 @@
+version: 1.3.0
+services:
+  - mysql
+  - php:
+      version: 7.4
+  - composer:
+      version: 2
+
+events:
+  build:
+    steps:
+      - setup:
+          type: script
+          script:
+            - composer validate --no-check-all --ansi
+            - composer install
+            - mysql -u root -proot -e "CREATE DATABASE drupal"
+      - test:
+          type: script
+          script:
+            - ./vendor/bin/phpunit
